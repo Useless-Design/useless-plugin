@@ -1,9 +1,7 @@
-const path = require('path')
-
 module.exports = {
   extends: ['plugin:markdown/recommended', 'prettier'],
   parserOptions: {
-    project: ['./tsconfig.json', './commitlint.config.js']
+    project: ['./tsconfig.json']
   },
   overrides: [
     {
@@ -16,7 +14,7 @@ module.exports = {
     },
     {
       files: ['*.vue', '*.js'],
-      extends: ['plugin:vue/essential', '@vue/standard'],
+      extends: ['plugin:vue/vue3-recommended'],
       rules: {
         'vue/multiline-html-element-content-newline': 0,
         'vue/multi-word-component-names': 0,
@@ -39,7 +37,7 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       extends: ['standard-with-typescript', 'plugin:import/typescript'],
       parserOptions: {
-        project: path.join(__dirname, './tsconfig.json'),
+        project: './tsconfig.json',
         ecmaFeatures: {
           jsx: true
         }

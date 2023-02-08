@@ -5,27 +5,16 @@
       <span>Useless UI</span>
     </n-text>
     <div />
-    <div class="nav-end">
-      <n-button @click="changeLang">
-        {{ langText }}
-      </n-button>
-    </div>
+    <div class="nav-end" />
   </n-layout-header>
 </template>
 <script lang="ts" setup>
 import { useRoute, useRouter } from 'vue-router'
 import { useIsMobile } from '../utils/composables'
 import { computed } from 'vue'
-import { useSystemStore } from '../store'
-import { storeToRefs } from 'pinia'
-const { locale } = storeToRefs(useSystemStore())
 const isMobileRef = useIsMobile()
 const router = useRouter()
 const route = useRoute()
-
-const langText = computed(() => {
-  return locale.value === 'zh-CN' ? '中文' : 'English'
-})
 
 const style = computed(() => {
   return isMobileRef.value
@@ -41,17 +30,6 @@ const style = computed(() => {
 
 const handleLogoClick = () => {
   router.push('/')
-}
-
-const changeLang = () => {
-  const curLang = locale.value === 'zh-CN' ? 'en-US' : 'zh-CN'
-  // 获取当前路由name
-  const curRouteName = route.name ?? 'home'
-  router.push({
-    name: curRouteName,
-    params: { lang: curLang },
-    query: route.query
-  })
 }
 </script>
 

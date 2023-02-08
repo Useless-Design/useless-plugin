@@ -10,12 +10,12 @@ const componentRoutes = [
 const routes = [
   {
     name: 'home',
-    path: '/:lang',
+    path: '/',
     component: async () => await import('../pages/index.vue')
   },
   {
     name: 'components',
-    path: '/:lang/components',
+    path: '/components',
     component: async () => await import('../layout/BasicLayout.vue'),
     children: componentRoutes
   },

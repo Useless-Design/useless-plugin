@@ -40,15 +40,9 @@ import {
 import { useRoute } from 'vue-router'
 import LayoutFooter from './SiteFooter.vue'
 import LayoutHeader from './SiteHeader.vue'
-import { useSystemStore } from '../store'
 
-const { locale } = useSystemStore()
 const route = useRoute()
-const componentOptions = createComponentMenuOptions({
-  lang: locale,
-  theme: 'dark',
-  mode: 'debug'
-})
+const componentOptions = createComponentMenuOptions()
 const menuValue = computed(() => {
   return findMenuValue(componentOptions, route.path)
 })
