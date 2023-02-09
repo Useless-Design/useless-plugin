@@ -1,6 +1,6 @@
 const componentRoutes = [
   {
-    path: 'relief-button',
+    path: 'button',
     name: 'relief-button',
     component: async () =>
       await import('../../src/button/demo/index.demo-entry.md')

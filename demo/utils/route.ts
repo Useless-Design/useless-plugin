@@ -76,7 +76,7 @@ export function createComponentMenuOptions () {
         {
           label: '按钮',
           enSuffix: true,
-          path: '/relief-button'
+          path: '/button'
         }
       ]
     })
